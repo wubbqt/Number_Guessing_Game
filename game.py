@@ -37,15 +37,17 @@ def start_game():
     guesses = 1
     answer = random.randrange(1,100)
     print(answer)
-    user_guess = input("What is your guess?")
+    
+    user_guess = int(input("What is your guess?: "))
 
-    while user_guess != "f":
-        print("test")
-        guesses += 1
-        user_guess = input("Try again")
+    while user_guess != answer:
         if user_guess == answer:
-            print("You did it!")
-            break
+            print("you got it")
+
+        elif user_guess == answer:
+            print("Wrong")
+            guesses += 1
+
 
 
 
