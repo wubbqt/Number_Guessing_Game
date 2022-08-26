@@ -44,11 +44,17 @@ def start_game():
         if user_guess == answer:
             print("Got it")
             break
-        
-        else:
-            print("Try Again")
+
+        elif user_guess > answer:
+            print("That's a bit too high")
+            guesses += 1
             continue
 
+        elif user_guess < answer:
+            print("That's a bit too low")
+            guesses += 1
+            continue
+    return print("It looks like it took you {} trys, not bad".format(guesses))
     
 
 
