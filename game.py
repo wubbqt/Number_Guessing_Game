@@ -30,11 +30,21 @@ NOTE: If you prefer to work locally on your own computer, you can totally do tha
 import random
 import statistics
 
+
 def start_game():
     print("Welcome to the guessing game.")
 
+    guesses = 0
     answer = random.randrange(1,100)
     print(answer)
+    user_guess = input("What is your guess?")
+    while user_guess != answer:
+        print("test")
+        guesses += 1
+        user_guess = input("Try again")
+        if user_guess == answer:
+            print("You did it!")
+            break
 
 
 
