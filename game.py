@@ -32,19 +32,30 @@ import random
 import statistics
 
 
+
 def start_game():
     print("Welcome to the guessing game.")
-
-    guesses = 1
     answer = random.randrange(1,100)
+    attempts_list = []
+    guesses = 1
     
-    while guesses != 0:
+    
+    #remove
+    print(answer)
+    
+    while guesses > 0:
         try:
             user_guess = int(input("Enter a number: "))
 
             if user_guess == answer:
                 print("Got it")
-                break
+                attempts_list.append(guesses)
+                print("It looks like it took you {} trys, not bad".format(guesses))
+                print(attempts_list)
+                answer = random.randrange(1,100)
+                #remove
+                print(answer)
+                
 
             elif user_guess > answer:
                 print("That's a bit too high")
@@ -59,8 +70,9 @@ def start_game():
         except ValueError: 
             print("Invalid Entry, try again")
         
-    return print("It looks like it took you {} trys, not bad".format(guesses))
+    return
     
+
 
 
 
