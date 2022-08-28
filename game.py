@@ -34,27 +34,27 @@ import statistics
 
 
 def start_game():
-    print("Welcome to the guessing game.")
+    print("Welcome to the guessing game. Try and guess what number I am thinking of!")
     answer = random.randrange(1,100)
     attempts_list = []
     guesses = 1
     
-    
-    #remove
-    print(answer)
-    
     while guesses > 0:
         try:
-            user_guess = int(input("Enter a number: "))
+            user_guess = int(input("Enter a number between 1 and 100: "))
+
 
             if user_guess == answer:
-                print("Got it")
+                print("You got it!")
                 attempts_list.append(guesses)
                 print("It looks like it took you {} trys, not bad".format(guesses))
                 print(attempts_list)
+                print("Mean is: ", statistics.mean(attempts_list))
+                print("Median is: ", statistics.median(attempts_list))
+                print("Mode is: ", statistics.mode(attempts_list))
                 answer = random.randrange(1,100)
-                #remove
-                print(answer)
+                #sets guesses back to 1
+                guesses = 1
                 
 
             elif user_guess > answer:
