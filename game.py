@@ -28,6 +28,7 @@ NOTE: If you prefer to work locally on your own computer, you can totally do tha
     # write your code inside this function.
 
 from multiprocessing.sharedctypes import Value
+from pickle import FALSE
 import random
 import statistics
 
@@ -38,8 +39,9 @@ def start_game():
     answer = random.randrange(1,100)
     attempts_list = []
     guesses = 1
+    play = True
     
-    while guesses > 0:
+    while play == True:
         try:
             user_guess = int(input("Enter a number between 1 and 100: "))
 
@@ -55,6 +57,16 @@ def start_game():
                 answer = random.randrange(1,100)
                 #sets guesses back to 1
                 guesses = 1
+                try:
+                    play_again = input('Would you like to play again? y/n\n')
+                    if play_again == "y":
+                        play = True
+                    if play_again == "n":
+                        print("Thanks for playing!")
+                        play = False
+                except ValueError:
+                    print("Invalid Entry, try again")
+
                 
 
             elif user_guess > answer:
@@ -72,8 +84,6 @@ def start_game():
         
     return
     
-
-
 
 
 # Kick off the program by calling the start_game function.
